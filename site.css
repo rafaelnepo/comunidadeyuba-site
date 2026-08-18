@@ -72,3 +72,113 @@
   opacity: 0.55;
   cursor: default;
 }
+
+/* ==========================================================================
+   ESTÁGIO 2 — o sistema de marca por cima do base.css (18 ago 2026).
+   Fonte da verdade: design/YUBA-DESIGN.md, com uma correção executada em
+   16 ago: o corpo latino é LITERATA ("Shippori loses the body"); Shippori
+   segue dono do japonês; EB Garamond é o display e as versalinhas.
+   ========================================================================== */
+
+/* ------------------------------------------------------------ tokens */
+:root {
+  --paper: #FAF6EE;
+  --paper-warm: #EFE7D8;
+  --paper-raised: #FDFBF6;
+  --rule: #D9D0BE;
+  --line-strong: #BFB9AC;
+  --ink: #141414;
+  --ink-soft: #4A423D;
+  --ink-faint: #6E655C;
+  /* Bordas duras: não há 8px, não há "cartão levemente arredondado". */
+  --radius: 0;
+  --radius-lg: 0;
+  --font-display: "EB Garamond", Georgia, serif;
+  --font-serif: "Literata", Georgia, "Hiragino Mincho ProN", serif;
+  /* O sistema não tem UI sans: o que parecia "dado" vira texto pequeno. */
+  --font-sans: "Literata", Georgia, serif;
+  --seam: 26px;
+}
+
+/* Japonês: Shippori Mincho carrega o corpo, no MESMO tom de tinta que o
+   latim — 80% do tamanho fica por conta do próprio desenho da fonte. */
+html[lang="ja"] body { font-family: "Shippori Mincho", "Literata", serif; }
+html[lang="ja"] .jp { font-family: "Shippori Mincho", serif; }
+
+/* ------------------------------------------------- as duas vozes do tipo */
+/* Display: títulos em EB Garamond. */
+h1, h2, h3, h4,
+.acc-title,
+.sched-time,
+.form-tab .ft-label {
+  font-family: var(--font-display);
+}
+
+/* Versalinhas espaçadas: a voz de display em caixa alta. Só o EB Garamond
+   é versalizado — o japonês não tem caixa e fica com o tracking. */
+.eyebrow, .acc-eyebrow,
+.hero .meta,
+.card .meta,
+.sched-name,
+.season .sname,
+.b-form legend,
+dl.mini dt,
+.b-table th,
+.subject-box .sf-label,
+.note.note-stamp {
+  font-family: var(--font-display);
+  letter-spacing: 0.16em;
+}
+html[lang="ja"] .eyebrow,
+html[lang="ja"] .acc-eyebrow { letter-spacing: 0.14em; text-transform: none; }
+
+/* Seletor de idiomas acompanha a voz de display. */
+.hero-langs a { font-family: var(--font-display); letter-spacing: 0.11em; }
+
+/* ------------------------------------------ superfícies: elevação sem sombra */
+/* "Raised" é mudança de cor + fio, nunca sombra. O branco puro fica só nos
+   campos de formulário — é o print stock, a ausência de preenchimento. */
+.card,
+.season,
+.form-tab,
+.b-callout,
+.b-address address,
+.subject-box {
+  background: var(--paper-raised);
+  border-color: var(--line-strong);
+}
+.b-callout.tone-warn { background: #FBF0EC; }  /* wash-red */
+.addr-copy:hover, .addr-copy.is-done { background: var(--paper-raised); }
+
+/* Aba selecionada: fio duplo em vez de sombra interna. */
+.form-tab[aria-selected="true"] {
+  box-shadow: none;
+  outline: 1px solid var(--yuba-red);
+  outline-offset: -3px;
+}
+.form-tab:focus-visible { outline: 2px solid var(--yuba-red); outline-offset: 2px; }
+
+/* Formas duras onde o base.css desenhava círculo — a única exceção que fica
+   é o ponto da agenda, que vira vermilion: "dots and ties only". */
+.acc-mark { border-radius: 0; }
+.sched-item::before { background: var(--yuba-vermilion); border-radius: 0; }
+
+/* --------------------------------------------------- a emenda estampada */
+/* 26px de padrão entre dois chãos, tingido para a seção que começa.
+   Uma tinta em duas opacidades, nunca duas cores. */
+.seam {
+  height: var(--seam);
+  background-color: var(--paper);
+  -webkit-mask-image: url("img/pattern-senbon-goshi-indigo.svg");
+  mask-image: url("img/pattern-senbon-goshi-indigo.svg");
+  -webkit-mask-repeat: repeat-x;
+  mask-repeat: repeat-x;
+  -webkit-mask-size: auto 100%;
+  mask-size: auto 100%;
+}
+.seam { background-color: rgba(20, 20, 20, 0.15); }
+.seam-to-indigo { background-color: rgba(38, 54, 79, 0.35); }
+
+/* ------------------------------------------------------------- rodapé */
+.foot a { color: var(--yuba-cream); }
+.foot .fine { font-size: 0.85rem; opacity: 0.85; }
