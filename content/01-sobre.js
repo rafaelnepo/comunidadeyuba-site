@@ -12,7 +12,7 @@ YUBA.section({
       "type": "prose",
       "label": "Abertura",
       "items": [
-        "Somos cerca de sessenta pessoas, de quatro gerações, vivendo e trabalhando juntas no interior de São Paulo desde 1935. Plantamos, rezamos e fazemos arte. Há noventa anos essas três coisas não se separam."
+        "Somos cerca de sessenta pessoas, de quatro gerações, vivendo e trabalhando juntas no interior de São Paulo desde 1935. Plantamos, rezamos e fazemos arte. Há noventa anos essas três coisas não se separam. :)"
       ]
     },
     {
