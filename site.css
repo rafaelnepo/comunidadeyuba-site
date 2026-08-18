@@ -1,0 +1,74 @@
+/* ==========================================================================
+   Comunidade Yuba — ajustes de produção sobre o base.css (o CSS do
+   playground, copiado pelo build). Aqui vive só o que o playground não tem:
+   o seletor de idiomas, o cabeçalho das páginas de apoio, e a limpeza do
+   que era bancada.
+   ========================================================================== */
+
+/* O playground marcava a página como protótipo; o site não. */
+#panel, #panel-toggle, .stamp { display: none !important; }
+
+/* --------------------------------------------------- seletor de idiomas */
+.hero-langs {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.hero-langs a {
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  letter-spacing: 0.09em;
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+}
+.hero-langs a:hover,
+.hero-langs a:focus-visible {
+  color: #fff;
+  border-bottom-color: rgba(255, 255, 255, 0.6);
+  outline: none;
+}
+.hero-langs a[aria-current="true"] {
+  color: #fff;
+  border-bottom-color: var(--yuba-cream);
+}
+
+/* ------------------------------------------------- páginas de apoio */
+.page-sub { background: var(--paper); }
+.sub-head {
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper);
+}
+.sub-head .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.sub-logo { display: inline-flex; }
+.sub-langs a {
+  color: var(--ink-faint);
+}
+.sub-langs a:hover,
+.sub-langs a:focus-visible {
+  color: var(--ink);
+  border-bottom-color: var(--rule);
+}
+.sub-langs a[aria-current="true"] {
+  color: var(--ink);
+  border-bottom-color: var(--yuba-red);
+}
+.sub-main {
+  padding: var(--space-6) 0 var(--space-7);
+}
+.sub-main .wrap { max-width: 44rem; }
+.sub-main h1 { margin-bottom: var(--space-4); }
+.sub-main h2 { margin-top: var(--space-5); }
+
+/* Botão de envio desabilitado enquanto envia. */
+.b-form .submit:disabled {
+  opacity: 0.55;
+  cursor: default;
+}

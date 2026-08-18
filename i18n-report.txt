@@ -1,0 +1,5 @@
+Cobertura da tradução sobre as strings do playground (474 únicas)
+
+EN sem tradução: 0
+
+JA sem tradução: 0
